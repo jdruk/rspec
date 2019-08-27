@@ -1,2 +1,6 @@
-# rspec
-Estudo Rspec
+### Básico
+
+```zsh
+  rspec --init
+```
+
