@@ -43,5 +43,25 @@ end
 
 ```
 
+Configuração de testes edite/crie arquivo .spec
+```
+  echo "\
+  --require spec_help\n
+  --format documentation\n" >> .spec
+```
 
 
+Execução de testes.
+
+
+Todos:
+
+```zsh
+  rspec --format documentation
+```
+
+Indivual:
+```zsh
+  rspec spec/calcultaor/calcultaor_spec.rb -e 'numbers negatives' # ou
+  rpesc spec/calcultaor/calcultaor_spec.rb:15 
+```
