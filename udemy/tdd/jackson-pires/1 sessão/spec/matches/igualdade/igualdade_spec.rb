@@ -1,4 +1,4 @@
-describe "Comparações" do 
+describe "Match Igualdade" do 
   context "Objecto/Conteúdo" do 
     it "#equal" do 
       x = "ruby"

@@ -8,7 +8,7 @@ describe Calculator do
 			expect(result).to(eq(10))
 		end
 
-		it 'Dividir dois números'
+		xit 'Dividir dois números'
 	end
 end
 
@@ -19,7 +19,7 @@ describe Calculator do
 			expect(result).to(eq(10))
 		end
 
-		it 'Dividir dois números'
+		xit 'Dividir dois números'
 	end
 end
 
@@ -33,6 +33,6 @@ describe "classe Calculator" do
 			expect(result).to(eq(10))
 		end
 
-		it 'Dividir dois números'
+		xit 'Dividir dois números'
 	end
 end
