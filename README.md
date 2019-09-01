@@ -100,4 +100,35 @@ Outra forma interessante é a utilização do it com block.
 ```
 
 
+### Adicionando Helper methods arbitrários
 
+Crie uma pasta `helpers` no local mais conveniente para os testes.
+
+Exemplo:
+
+```zsh
+mkdir -pv helpers
+touch helpers/helper.rb
+```
+Em `helper.rb`
+
+```ruby
+  modulo Helper
+  ...
+    def funcao
+    end
+  end
+```
+
+Inclua no `spec_helper` o módulo em questão.
+
+```ruby
+  
+  # Carregue o módulo
+  require_relative '../helpers/helper.rb'
+
+  RSpec.configure do |config|
+    config.include Helper # Nome do módulo
+    ...
+  end
+```
