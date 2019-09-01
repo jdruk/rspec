@@ -223,3 +223,18 @@ ser usado com as mesmas opções do before/after. (all,context, each, example, s
     ...
   end
 ```
+
+### Matcher para negação
+
+Para substituir o `expect.not_to`, podemos efetuar o matcher de negação.
+Segue:
+
+```ruby
+  RSpec::Matchers.define_negated_matcher :an_array_excluding, :include
+
+  describe [1,2,3], "Array" do
+    it { is_expected.not_to include(4)}
+    it { is_expected.to an_array_excluding(4)} 
+  end
+```
+
