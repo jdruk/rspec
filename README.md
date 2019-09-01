@@ -60,8 +60,12 @@ Todos:
   rspec --format documentation
 ```
 
-Indivual:
+Individual:
 ```zsh
   rspec spec/calcultaor/calcultaor_spec.rb -e 'numbers negatives' # ou
   rpesc spec/calcultaor/calcultaor_spec.rb:15 
+
 ```
+
+Lista de alias para `have_attributes`. [GIST](https://gist.github.com/JunichiIto/f603d3fbfcf99b914f86)
+
