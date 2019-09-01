@@ -132,3 +132,92 @@ Inclua no `spec_helper` o módulo em questão.
     ...
   end
 ```
+
+### Hooks
+before/after depende do contexto a qual foram configuradas
+
+Contexto de suíte de textes.
+
+```ruby
+  # Executa determinada função antes ou após a execução da suíte de testes
+  before(:suite)
+  after(:suite)
+
+  # Dentro de spec_helper
+  RSpec.configure do |config|
+  ...
+    before(:suite) do 
+      # Levante banco de dados ou alguma coisa que os testes dependam
+    end
+
+    after(:suite) do
+      # Desliga o banco de dados ou etc...
+    end
+    ...
+  end
+```
+
+Contexto de arquivo de teste.
+
+```ruby
+  # Executa determinada função antes ou após a execução do arquivo de testes
+  before(:all)
+  before(:context) # Mesmo que :all
+  after(:all)
+  after(:context)
+
+  # Dentro de spec_helper
+  RSpec.configure do |config|
+  ...
+    before(:all) do 
+      # Antes da execução do arquivo de testes ( para todos)
+    end
+
+    after(:context) do
+      # Após a execução do arquivo de teste ( para todos) 
+    end
+    ...
+  end
+```
+
+Contexto de unidade de teste.
+
+```ruby
+  # Executa determinada ação antes/após de cada unidade de teste
+  before(:each)
+  before(:example) # Mesmo que :each
+  after(:each)
+  after(:example)
+
+  # Dentro de arquivo de teste 
+  # Exemplo:
+  # comparacao_spec.rb
+  
+  describe "Comparação" do 
+  
+    before(:each) do 
+      # Antes da execução de cada teste ( para todos)
+    end
+
+    after(:example) do
+      # Após a execução de cada teste ( para todos) 
+    end
+    ...
+  end
+```
+
+Utilizando around, não é necessário declarar dois gatilhos (before/after). Circunda a operação, podendo
+ser usado com as mesmas opções do before/after. (all,context, each, example, suite)
+
+```ruby
+  # comparacao_spec.rb
+  
+  describe "Comparação" do 
+    around(:each) do |teste|
+      puts "antes de cada teste"
+      teste.run # executa o teste
+      puts "após" # semelhante ao after
+    end 
+    ...
+  end
+```
