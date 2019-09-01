@@ -12,4 +12,6 @@ describe Array.new([1,2,3]) do
   it "#match_array" do
     expect(subject).to match_array([1,2,3]) # Sequência e elementos iguais.
   end
+
+  it { is_expected.to include(1)}
 end
