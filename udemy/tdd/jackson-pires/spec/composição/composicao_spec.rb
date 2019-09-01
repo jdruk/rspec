@@ -3,7 +3,4 @@ describe "Josafá Martins dos Santos" do
 
   it { expect(styles).to eq('rock').or eq('pop').or eq('rapper') }
 
-  def styles 
-    %w(rock pop rapper).sample
-  end
 end
