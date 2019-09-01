@@ -238,3 +238,35 @@ Segue:
   end
 ```
 
+### Falhas agregadas
+
+Usando para que quando houver erro dentro de um block `it` não pare a execução dos testes deste block 
+
+Ativação modo individual.
+
+```ruby
+  ...
+  it "#sum" do
+    aggregate_failures do 
+      expect(subject).to eq(55)
+    end
+  end
+
+  it "#sum/2", :aggregate_failures do
+    ...
+  end
+  
+  it "#sum/2", aggregate_failures: true do
+    ...
+  end
+```
+
+```ruby
+  # Ativando de forma global
+  RSpec.configure do |config|
+    config.define_derived_metadata do |meta|
+      meta[:aggregate_failures] = true
+    end
+    ...
+  end
+```
