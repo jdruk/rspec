@@ -69,3 +69,35 @@ Individual:
 
 Lista de alias para `have_attributes`. [GIST](https://gist.github.com/JunichiIto/f603d3fbfcf99b914f86)
 
+### One line syntax `subject`.
+
+Forma explícita:
+
+```ruby
+  describe "String" do
+    it "#size" do
+      expect(subject.size).to eq(5)
+    end
+  end
+```
+
+Forma implícita:
+
+```ruby
+  describe "String" do
+    it "#size" do
+      is_expected.to eq(5)
+    end
+  end
+```
+
+Outra forma interessante é a utilização do it com block.
+
+```ruby
+  describe "String" do
+      it { is_expected.to eq(5) } # should equal 5
+  end
+```
+
+
+
