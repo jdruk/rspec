@@ -1,7 +1,9 @@
 ### Básico
 
 Texto de referência:
-[BetterSpec](http://www.betterspecs.org/)
+
++ [BetterSpec](http://www.betterspecs.org/)
++ [Relishap](https://relishapp.com/rspec/)
 
 Iniciatlizar projeto Rspec em Ruby puro
 ```zsh
