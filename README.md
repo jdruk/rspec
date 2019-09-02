@@ -261,8 +261,9 @@ Ativação modo individual.
   end
 ```
 
-```ruby
-  # Ativando de forma global
+Ativando de forma global
+
+ ```ruby
   RSpec.configure do |config|
     config.define_derived_metadata do |meta|
       meta[:aggregate_failures] = true
@@ -270,3 +271,44 @@ Ativação modo individual.
     ...
   end
 ```
+
+### Tag filter
+Como o nome diz, é usado para filtra quais teste devem ou não serem executados.
+
+```ruby
+  describe "Array", type: collection do 
+    # KEY - VALUE
+    ...
+    # Execute:
+    # rspec --tag type:collection
+  end 
+
+  describe "Array", :collection do
+    # KEY
+    # rspec --tag collection
+  end
+
+  describe "Array", collection: true do 
+    # KEY - TRUE
+    # rspec --tag collection
+  end
+```
+
+Utilizando o operador `~` é ativado filter para exclusão de determinado teste.
+
+```ruby
+  ...
+  it "#sum", slow do 
+    ...
+  end
+
+  # ou (slow => nome arbitrário escolhido para marcar os teste)
+
+  it "#div", slow: true do
+    ...
+  end
+
+  # Execute
+  # rspec --tag ~slow
+```
+

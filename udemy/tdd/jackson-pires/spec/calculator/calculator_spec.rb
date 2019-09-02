@@ -1,8 +1,8 @@
 require "calculator"
 
-describe Calculator do
+describe Calculator, :calculator do
 	context '#sum' do
-		it 'Somar dois números' do
+		it 'Somar dois números', :slow do
 			calc = Calculator.new
 			result = calc.sum(5,5)
 			expect(result).to(eq(10))
